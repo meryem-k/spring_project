@@ -13,6 +13,6 @@ public class HomeController {
 
     @RequestMapping("/welcome")
     public String welcome(){
-        return "welcome.html";
+        return "welcome.html";//go to folder static and look over there  by default
     }
 }
