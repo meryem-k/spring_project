@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mentor")
-public class MentorController {
+@RequestMapping("/another")
+public class AnotherController {
 
-    @RequestMapping("/list")//localhost:8080/mentor/list
+    @RequestMapping("/list")//localhost:8080/another/list
     public String showTable(Model model){
 
         List<Mentor> mentorList = new ArrayList<>();
 
-        mentorList.add(new Mentor("Mike","Smith",25,Gender.MALE));
+        mentorList.add(new Mentor("Mike","Smith",25, Gender.MALE));
         mentorList.add(new Mentor("Emily","Johnson",22,Gender.FEMALE));
         mentorList.add(new Mentor("Tom","Walsh",65,Gender.MALE));
 
@@ -26,9 +26,6 @@ public class MentorController {
 
         return "/mentor/mentor-list";
     }
-
-
-
 
 
 }
