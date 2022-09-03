@@ -13,7 +13,7 @@ import java.util.List;
 public class MentorController {
 
     @RequestMapping("/mentor")
-    public String mentorPage(Model model){
+    public String showTable(Model model){
 
         List<Mentor> mentorList = new ArrayList<>();
 
