@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--We need thymeleaf in order to bind the data to view therefore we need to change the html to thymeleaf and to do that we need to give the attribute of thymeleaf with the html tag.-->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<h2>Welcome New Student</h2>
+
+<!--Displaying Values in the view-->
+<h2 th:text="${students.get(0).firstName}"></h2>
+<h2 th:text="${students.get(0).lastName}"></h2>
+
+<!--Concatenation-->
+
+<h2 th:text="${ 'Welcome ' + students.get(0).firstName + ' ' + students.get(0).lastName}"></h2>
+
+<!--Link -->
+<!-- 1-)Absolute Link -->
+<a th:href="@{http://cydeo.com}">Cydeo</a>
+
+<br>
+
+<!-- 2-)Relative Link: For travelling between the pages -->
+<a th:href="@{/student/welcome}">Welcome page</a>
+
+
 
 </body>
 </html>
