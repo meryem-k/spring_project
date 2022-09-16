@@ -19,12 +19,24 @@
 
 <!--Link -->
 <!-- 1-)Absolute Link -->
-<a th:href="@{http://cydeo.com}">Cydeo</a>
-
-<br>
+<a th:href="@{http://cydeo.com}">Cydeo</a><br>
 
 <!-- 2-)Relative Link: For travelling between the pages -->
-<a th:href="@{/student/welcome}">Welcome page</a>
+<a th:href="@{/student/welcome}">Welcome page</a><br>
+
+
+<!-- Adding Parameters to Link -->
+<a th:href="@{/student/welcome(id=3)}">Link1</a>
+
+<a th:href="@{/student/welcome(id=${students.get(0).firstName})}">Link2</a>
+
+
+<!-- Iteration -->
+<ul>
+    <li th:each="student : ${students}" th:text="${student.firstName}"></li>
+</ul>
+
+
 
 
 
