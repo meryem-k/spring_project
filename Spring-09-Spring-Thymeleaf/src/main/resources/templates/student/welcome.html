@@ -22,6 +22,10 @@
 <!--bind images-->
 <img th:src="@{/images/welcome-38249.png}">
 
+<!--working with fragments-->
+<div th:replace="/fragments/index :: footer-menu">Menu</div>
+<div th:replace="/fragments/index :: main-menu">Menu</div>
+
 
 
 </body>
