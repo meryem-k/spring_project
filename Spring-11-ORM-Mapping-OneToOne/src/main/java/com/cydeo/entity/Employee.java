@@ -4,6 +4,7 @@ package com.cydeo.entity;
 import com.cydeo.enums.Gender;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +23,16 @@ public class Employee extends BaseEntity{
     private int salary;
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @OneToOne(cascade = CascadeType.ALL)//one employee belongs to one department
+    //@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
 
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, int salary, Gender gender) {
         this.firstName = firstName;
