@@ -18,6 +18,4 @@ public class Department {
     private String department;
     private String division;
 
-
-
 }

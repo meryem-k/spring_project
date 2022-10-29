@@ -1,4 +1,4 @@
-package com.cydeo.bootstrap;
+package com.cydeo.boostrap;
 
 import com.cydeo.model.Student;
 import com.github.javafaker.Faker;

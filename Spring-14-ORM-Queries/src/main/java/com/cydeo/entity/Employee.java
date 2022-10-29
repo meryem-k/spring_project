@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Employee extends BaseEntity {
 
-
     private String firstName;
     private String lastName;
     private String email;
@@ -24,15 +23,10 @@ public class Employee extends BaseEntity {
     private Gender gender;
     private Integer salary;
 
+    @ManyToOne//one department can belong to many employees
+    @JoinColumn(name = "department")
     private Department department;
 
+    @ManyToOne
     private Region region;
-
-
-
-
-
-
-
-
 }
