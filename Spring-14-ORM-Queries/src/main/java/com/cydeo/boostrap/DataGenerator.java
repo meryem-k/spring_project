@@ -1,6 +1,8 @@
 package com.cydeo.boostrap;
 
 
+import com.cydeo.repository.DepartmentRepository;
+import com.cydeo.repository.EmployeeRepository;
 import com.cydeo.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,10 +12,15 @@ public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
 
-    public DataGenerator(RegionRepository regionRepository) {
-        this.regionRepository = regionRepository;
-    }
+    private final DepartmentRepository departmentRepository;
 
+    private final EmployeeRepository employeeRepository;
+
+    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+        this.regionRepository = regionRepository;
+        this.departmentRepository = departmentRepository;
+        this.employeeRepository = employeeRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,5 +35,21 @@ public class DataGenerator implements CommandLineRunner {
 
         System.out.println("-----------------REGION END-----------------");
 
+        System.out.println("-----------------DEPARTMENT START-----------------");
+
+        System.out.println("findByDepartment:" + departmentRepository.findByDepartment("Toys"));
+        System.out.println("findByDepartment:" + departmentRepository.findByDivisionIs("Outdoor"));
+        System.out.println("findByDepartment:" + departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
+
+        System.out.println("-----------------DEPARTMENT END-----------------");
+
+        System.out.println("-----------------EMPLOYEE START-----------------");
+
+        System.out.println("getEmployeeDetail:" + employeeRepository.getEmployeeDetail());
+        System.out.println("getEmployeeSalary:" + employeeRepository.getEmployeeSalary());
+
+
+
+        System.out.println("-----------------EMPLOYEE  END-----------------");
     }
 }
