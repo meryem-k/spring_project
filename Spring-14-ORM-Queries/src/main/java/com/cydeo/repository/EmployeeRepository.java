@@ -36,7 +36,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 
     //Display all employees where salaries are greater and equal to '' in order
-    List<Employee> findBySalaryIsGreaterThanEqualBOrderBySalaryDesc(Integer salary);
+    List<Employee> findBySalaryIsGreaterThanEqualOrderBySalaryDesc(Integer salary);
 
     //Display top unique 3 employees that is making less than ' '
     List<Employee> findDistinctTop3BySalaryLessThan(Integer salary);
@@ -56,6 +56,60 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.email=?1 AND e.salary=?2")
     Employee getEmployeeDetail(String email,int salary);
+
+    //Not equal
+    @Query("SELECT e FROM Employee e WHERE e.salary <> ?1")
+    List<Employee> getEmployeeSalaryNotEqual(int salary);
+
+    //Like/contain/startswith/endswith
+    @Query("SELECT e FROM Employee e WHERE e.firstName LIKE ?1")
+    List<Employee> getEmployeeFirstNameLike(String pattern);
+
+    //less than
+    @Query("SELECT e FROM Employee e WHERE e.salary < ?1")
+    List<Employee> getEmployeeSalaryLessThan(int salary);
+
+     //Greater than
+    @Query("SELECT e FROM Employee e WHERE e.salary > ?1")
+    List<Employee> getEmployeeSalaryGreaterThan(int salary);
+
+    //Before
+    @Query("SELECT e FROM  Employee e WHERE  e.hireDate > ?1")
+    List<Employee> getEmployeeHireDateBefore(LocalDate date);
+
+    //Between
+    @Query("SELECT e FROM Employee e WHERE e.salary BETWEEN ?1 AND ?2")
+    List<Employee> getEmployeeSalaryBetween(int salary1, int salary2);
+
+    //Null
+    @Query("SELECT e FROM Employee e WHERE e.email IS NULL")
+    List<Employee> getEmployeeEmailIsNull();
+
+    //Is not null
+    @Query("SELECT e FROM Employee e WHERE e.email IS NOT NULL")
+    List<Employee> getEmployeeEmailIsNotNull();
+
+
+    //Sorting in ascending order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary")
+    List<Employee> getEmployeeSalaryOrderAsc();
+
+    //Sorting in descending order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary DESC")
+    List<Employee> getEmployeeSalaryOrderDesc();
+
+    //Native Query
+    @Query(value = "SELECT * from employees where salary ?1", nativeQuery = true)
+    List<Employee> readEmployeeDetailBySalary(int salary);
+
+
+
+
+
+
+
+
+
 
 
 
