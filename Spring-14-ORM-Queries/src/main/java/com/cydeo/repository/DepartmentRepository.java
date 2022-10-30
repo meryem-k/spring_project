@@ -2,6 +2,7 @@ package com.cydeo.repository;
 
 
 import com.cydeo.entity.Department;
+import com.cydeo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -21,6 +22,12 @@ public interface DepartmentRepository extends JpaRepository<Department,Long> {
 
     @Query("SELECT d FROM Department d WHERE d.division IN ?1")
     List<Department> getDepartmentDivision(List<String> division);
+
+
+    //Named Queries Method
+    List<Department> retrieveDepartmentByDivision(String division);
+
+    List<Department> retrieveDepartmentByDivisionContain(String pattern);
 
 
 }
