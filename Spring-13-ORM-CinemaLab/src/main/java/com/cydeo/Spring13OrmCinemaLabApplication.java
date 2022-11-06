@@ -1,5 +1,4 @@
 package com.cydeo;
-
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.output.MigrateResult;
 import org.springframework.boot.SpringApplication;
