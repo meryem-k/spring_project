@@ -25,6 +25,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     //Write a native query to count the number of tickets a user bought
 
+
+
     //Write a native query to count the number of tickets a user bought in a specific range of dates
 
     //Write a native query to distinct all tickets by movie name
