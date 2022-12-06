@@ -4,11 +4,13 @@ import com.cydeo.entity.MovieCinema;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> {
 
     // ------------------- DERIVED QUERIES ------------------- //
@@ -20,7 +22,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     Integer countAllByCinemaId(Long cinemaId);
 
     //Write a derived query to count all movie cinemas with a specific movie id
-    Integer countAllMovieId(Long movieId);
+    Integer countAllMovieById(Long movieId);
 
     //Write a derived query to list all movie cinemas with higher than a specific date
     List<MovieCinema> findAllByDateTimeAfter(LocalDateTime dateTime);
@@ -32,7 +34,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     List<MovieCinema> findAllByMovie_NameContaining(String name);
 
     //Write a derived query to list all movie cinemas in a specific location
-    List<MovieCinema> findAllByCinemaWhereLocationName(String name);
+    List<MovieCinema> findAllByCinemaLocationName(String name);
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query to list all movie cinemas with higher than a specific date
