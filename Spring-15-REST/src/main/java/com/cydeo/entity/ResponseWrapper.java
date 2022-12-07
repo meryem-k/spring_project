@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 public class ResponseWrapper {
 
+    //Building custom JSON output
     private boolean success;
     private String message;
     private Integer code;
